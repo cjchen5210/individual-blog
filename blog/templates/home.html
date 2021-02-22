@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="imghome">
+		<img src="{{ url_for('static', filename='img/home.jpeg')}}">
+</div>
+<h1>CJ's Blog home page</h1>
+	{% for post in posts %}
+		<p> <a href="{{ url_for('post', post_id=post.id) }}">"{{ post.title }}"</a> &nbsp
+		by {{ post.user.username }}</p>
+		<a href="{{ url_for('post', post_id=post.id)}}">
+		<img src="post.default.jpg">
+		</a>
+		<p>{{ post.description }}</p>
+		<p>{{ post.content }}</p>
+	{% endfor %}
+{% endblock content %}

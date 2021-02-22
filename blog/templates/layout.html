@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>My Wonderful Site</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+	</head>
+	<body>
+
+		<div class='sidebar'>
+			<aside>
+				<ul>
+					<li><a href="{{ url_for('home') }}">Home</a></li>
+					<li><a href="{{ url_for('about') }}">About</a></li>
+					<li><a href="{{ url_for('register') }}">Register</a></li>
+					<li><a href="{{ url_for('login') }}">Log in</a></li>
+					<li><a href="{{ url_for('logout')}}">Logout</a></li>
+				</ul>
+			</aside>
+		</div>
+
+		<hr>
+		<div class="greeting">
+			{% if current_user.is_authenticated %}
+			Hi {{ current_user.username}}
+			{% else %}
+			Hi Guest!
+			{% endif %}
+		</div>
+		<hr>
+
+		<div id="header">
+		</div>
+		<div id="content">
+			{% block content %}
+			{% endblock %}
+		</div>
+		<div>
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+				<ul class=flashes>
+					{% for message in messages%}
+						<li>{{ message }}</li>
+					{% endfor %}
+				</ul>
+				{% endif %}
+			{% endwith %}
+		</div>
+	</body>
+</html>

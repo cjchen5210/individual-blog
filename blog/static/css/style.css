@@ -1,0 +1,22 @@
+body{
+	margin: 20px;
+	padding: 20px;
+	border: 40px;
+	background-color: white;
+}
+.sidebar{
+	margin: 0;
+	padding: 0;
+	width: 200px;
+	background-color: #f1f1f1;
+	position: relative;
+	height: 100%;
+	overflow: auto;
+}
+.greeting{
+	font-size: large;
+	font-style: oblique;
+}
+#index{
+	background-color: pink;
+}

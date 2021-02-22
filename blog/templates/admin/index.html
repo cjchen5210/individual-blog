@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+		<title>My Wonderful Site</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+</head>
+<body class="index">
+	{% if current_user.is_admin %}
+	Welcome to the admin panel {{ current_user.username }}!
+	{% else %}
+	Hello, please login as an admin before accessing this panel &nbsp|
+	<a href="{{ url_for('login') }}">Login&nbsp;</a>
+	{% endif %}
+</body>
+</html>
+
